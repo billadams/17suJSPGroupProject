@@ -31,9 +31,16 @@ public class HomeController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ConnectionPool pool = ConnectionPool.getInstance();
-        Connection connection = pool.getConnection();
-        String breakpoint = "";
+        String url = "/index.jsp";
+        String sAction = request.getParameter("action");
+        boolean bIsValid = true;
+        
+        
+        
+        
+//        ConnectionPool pool = ConnectionPool.getInstance();
+//        Connection connection = pool.getConnection();
+//        String breakpoint = "";
     }
 
 
