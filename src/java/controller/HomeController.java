@@ -5,10 +5,13 @@
  */
 package controller;
 
+import business.Product;
 import data.ConnectionPool;
+import static data.HuskerDA.getAllfromDB;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,9 +37,9 @@ public class HomeController extends HttpServlet {
         String url = "/index.jsp";
         String sAction = request.getParameter("action");
         boolean bIsValid = true;
-        
-        
-        
+        Product oProduct = new Product();
+        ArrayList<Product> oProducts = getAllfromDB();
+        String breakpoint = "";
         
 //        ConnectionPool pool = ConnectionPool.getInstance();
 //        Connection connection = pool.getConnection();

@@ -17,6 +17,6 @@
         <url-pattern>/HomeController</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>test</welcome-file>
+        <welcome-file>HomeController</welcome-file>
     </welcome-file-list>
 </web-app>
