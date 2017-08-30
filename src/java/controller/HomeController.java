@@ -36,6 +36,26 @@ public class HomeController extends HttpServlet {
             throws ServletException, IOException {
         String url = "/index.jsp";
         String sAction = request.getParameter("action");
+        
+        if(sAction.equals("smartphone")){
+            
+        }
+        else if (sAction.equals("desktop")){
+            
+        }
+        else if (sAction.equals("laptop")){            
+                
+        }
+        else if (sAction.equals("accessories")){
+            
+        }
+        else if (sAction.equals("tv")){
+            
+        }
+        
+        
+        
+        
         boolean bIsValid = true;
         Product oProduct = new Product();
         ArrayList<Product> oProducts = getAllfromDB();
