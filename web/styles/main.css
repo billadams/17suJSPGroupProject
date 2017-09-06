@@ -1,3 +1,7 @@
-.results {
-    margin-bottom: 20px;
+/***** NAVBAR STYLES *****/
+.navbar-header .navbar-brand {
+    padding: 0;
+}
+.navbar-brand img {
+    padding: 7.5px;
 }
