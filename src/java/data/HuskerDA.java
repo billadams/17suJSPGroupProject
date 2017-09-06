@@ -5,6 +5,7 @@
  */
 package data;
 
+import business.Category;
 import business.Product;
 import java.sql.Connection;
 import java.sql.Date;
@@ -283,6 +284,70 @@ public class HuskerDA {
             DBUtil.closeResultSet(rs);
             DBUtil.closePreparedStatement(ps);
             pool.freeConnection(connection);
+        }
+    }
+    
+        public static Category getCategoryObject(Category oCategory) {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String query = "SELECT * FROM category "
+                + "WHERE categoryName = ?";
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, oCategory.getCatagoryName());
+            rs = ps.executeQuery();
+           while (rs.next()) {
+               oCategory.setCatagoryID(Integer.parseInt(rs.getString("CategoryID")));
+           }
+            
+        } catch (SQLException e) {
+            System.out.println(e);
+            return null;
+        } finally {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+            return oCategory;
+        }
+        
+    }
+        
+            public static ArrayList<Product> getSpecificProduct(String sCategoryID) {
+        ArrayList<Product> oProducts = new ArrayList<Product>();
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String query = "SELECT * FROM product "
+                + "WHERE CategoryID = ?";
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, sCategoryID);
+            rs = ps.executeQuery();
+            Product oProduct = null;
+            while (rs.next()) {
+                oProduct = new Product();
+                oProduct.setProductID(Integer.parseInt(rs.getString("ProductID")));
+                oProduct.setCatagoryID(Integer.parseInt(rs.getString("CategoryID")));
+                oProduct.setPrice(Double.parseDouble(rs.getString("price")));
+                oProduct.setProductName(rs.getString("productName"));
+                oProduct.setProductDesc(rs.getString("productDesc"));
+                oProduct.setImagePath(rs.getString("ImagePath"));
+                oProducts.add(oProduct);
+            }
+            
+            
+        } catch (SQLException e) {
+            System.out.println(e);
+            return null;
+        } finally {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+            return oProducts;
         }
     }
 }

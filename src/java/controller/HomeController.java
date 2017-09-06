@@ -5,8 +5,10 @@
  */
 package controller;
 
+import business.Category;
 import business.Product;
 import data.ConnectionPool;
+import data.HuskerDA;
 import static data.HuskerDA.getAllfromDB;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,6 +18,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -34,36 +37,41 @@ public class HomeController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String sCategory = "";
         String url = "/index.jsp";
+        HttpSession oSession = request.getSession();
+        Category oCategory = new Category();
+        //ArrayList<Product> oProducts = getAllfromDB();
         String sAction = request.getParameter("action");
-        
-        if(sAction.equals("smartphone")){
-            
+        if(sAction.equals("filter")){
+            sCategory = request.getParameter("category");
+            String sCategoryName = request.getParameter("category");
+            oCategory.setCatagoryName(sCategoryName);
+        oCategory = HuskerDA.getCategoryObject(oCategory);
+        ArrayList<Product> oProducts = HuskerDA.getSpecificProduct(""+oCategory.getCatagoryID());
+         if (oProducts != null) {
+                oSession.setAttribute("oProducts", oProducts);
+            }
         }
-        else if (sAction.equals("desktop")){
-            
-        }
-        else if (sAction.equals("laptop")){            
-                
-        }
-        else if (sAction.equals("accessories")){
-            
-        }
-        else if (sAction.equals("tv")){
-            
-        }
+    
         
         
         
         
         boolean bIsValid = true;
         Product oProduct = new Product();
-        ArrayList<Product> oProducts = getAllfromDB();
+        
+        
+        
         String breakpoint = "";
         
 //        ConnectionPool pool = ConnectionPool.getInstance();
 //        Connection connection = pool.getConnection();
 //        String breakpoint = "";
+                 request.setAttribute("category", sCategory);
+                 getServletContext()
+                .getRequestDispatcher(url)
+                .forward(request, response);
     }
 
 
