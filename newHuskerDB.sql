@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2017 at 06:25 PM
+-- Generation Time: Aug 30, 2017 at 06:42 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.4
 
@@ -30,6 +30,17 @@ CREATE TABLE `category` (
   `CategoryID` int(50) NOT NULL,
   `categoryName` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`CategoryID`, `categoryName`) VALUES
+(1, 'smartphone'),
+(2, 'desktop'),
+(3, 'laptop'),
+(4, 'accessories'),
+(5, 'tv');
 
 -- --------------------------------------------------------
 
@@ -86,8 +97,21 @@ CREATE TABLE `product` (
   `CategoryID` int(50) NOT NULL,
   `price` decimal(50,0) NOT NULL,
   `productName` varchar(255) NOT NULL,
+  `productDesc` varchar(500) NOT NULL,
   `imagePath` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`ProductID`, `CategoryID`, `price`, `productName`, `productDesc`, `imagePath`) VALUES
+(1, 1, '500', 'iPhone', 'Iphone 6s 16gb', 'provide later'),
+(2, 1, '200', 'Droid 2', 'Droid 2 phone', 'provide later'),
+(3, 2, '500', 'Dell XPS Desktop', 'Dell 8gb ram desktop', 'will provide later'),
+(4, 3, '1500', 'Alienware Gaming Laptop', 'Overpriced junk', 'will provide'),
+(5, 5, '1000', 'Samsung 100 inch tv', 'big tv', 'will provide'),
+(6, 4, '10', 'Ethernet Cord', 'connect directly to the internet', 'will provide');
 
 --
 -- Indexes for dumped tables
@@ -134,7 +158,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `CategoryID` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `CategoryID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `customer`
 --
@@ -154,7 +178,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `ProductID` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `ProductID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Constraints for dumped tables
 --
