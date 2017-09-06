@@ -11,6 +11,9 @@
 <h1>${msg}</h1>
 <div class="row">
     <div class="col">
+        <p>Product ID</p>
+    </div>
+    <div class="col">
         <p>Product Name</p>
     </div>
     <div class="col">
@@ -31,26 +34,27 @@
 <c:forEach var="item" items="${oProducts}">
     <div class="row">
         <div class="col">
-            <p>${item.productID}</p>
+            <p><c:out value="${item.productID}" /></p>
         </div>
         <div class="col">
-            <p>${item.productName} </p>
+            <p><c:out value="${item.productName}"/> </p>
         </div>
         <div class="col">
-            <img src="${item.imagePath}" alt="${item.productName}">
+            <img src="<c:out value="${item.imagePath}"/>" alt="<c:out value="${item.productName}"/>">
         </div>
         <div class="col">
-            <h3>${item.productDesc}</h3>
+            <p><c:out value="${item.productDesc}"/></p>
         </div>
         <div class="col">
-            <h3>${item.price}</h3>    
+            <p>$<c:out value="${item.price}"/></p>    
         </div>
         <div class="col">
-            <form>
+            <form action="CartServlet" method="Post">
                 <label>Quantity</label>
                 <input type="number" name="quantity">
-                <input type="hidden" name="action" value="cart">
-                <input type="submit" value="Submit" action="">    
+                <input type="hidden" name="action" value="add">
+                <input type="hidden" name="productID" value="<c:out value="${item.productID}"/>">
+                <input type="submit" value="Submit">    
             </form>
         </div>
     </div>
