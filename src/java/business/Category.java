@@ -11,15 +11,15 @@ import java.io.Serializable;
  *
  * @author nc520675
  */
-public class Catagory implements Serializable {
+public class Category implements Serializable {
     private int catagoryID;
     private String catagoryName;
     
-    public Catagory(){
+    public Category(){
         
     }
     
-    public Catagory(int catagoryID, String catagoryName){
+    public Category(int catagoryID, String catagoryName){
         this.catagoryID = catagoryID;
         this.catagoryName = catagoryName;
     }
