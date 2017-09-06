@@ -43,37 +43,32 @@ public class HomeController extends HttpServlet {
         Category oCategory = new Category();
         //ArrayList<Product> oProducts = getAllfromDB();
         String sAction = request.getParameter("action");
-        if(sAction.equals("filter")){
+        if (sAction.equals("filter")) {
             sCategory = request.getParameter("category");
             String sCategoryName = request.getParameter("category");
             oCategory.setCatagoryName(sCategoryName);
-        oCategory = HuskerDA.getCategoryObject(oCategory);
-        ArrayList<Product> oProducts = HuskerDA.getSpecificProduct(""+oCategory.getCatagoryID());
-         if (oProducts != null) {
+            oCategory = HuskerDA.getCategoryObject(oCategory);
+            ArrayList<Product> oProducts = HuskerDA.getSpecificProduct("" + oCategory.getCatagoryID());
+            if (oProducts != null) {
                 oSession.setAttribute("oProducts", oProducts);
             }
+            url = "/detailView.jsp";
         }
-    
-        
-        
-        
-        
+
         boolean bIsValid = true;
         Product oProduct = new Product();
-        
-        
-        
+
         String breakpoint = "";
-        
+
 //        ConnectionPool pool = ConnectionPool.getInstance();
 //        Connection connection = pool.getConnection();
 //        String breakpoint = "";
-                 request.setAttribute("category", sCategory);
-                 getServletContext()
+        request.setAttribute("msg", sCategory);
+        
+        getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);
     }
-
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
