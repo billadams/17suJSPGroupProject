@@ -49,7 +49,7 @@
             <form>
                 <label>Quantity</label>
                 <input type="number" name="quantity">
-                <input type="hidden" name="action" value="cart">
+                <input type="hidden" name="action" value="add">
                 <input type="submit" value="Submit" action="">    
             </form>
         </div>

@@ -314,7 +314,9 @@ public class HuskerDA {
         
     }
         
-            public static ArrayList<Product> getSpecificProduct(String sCategoryID) {
+        
+        
+            public static ArrayList<Product> getCategoryProducts(String sCategoryID) {
         ArrayList<Product> oProducts = new ArrayList<Product>();
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
@@ -348,6 +350,42 @@ public class HuskerDA {
             DBUtil.closePreparedStatement(ps);
             pool.freeConnection(connection);
             return oProducts;
+        }
+    }
+            
+            
+            public static Product getSpecificProduct(String sProductID) {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Product oProduct = null;    
+        String query = "SELECT * FROM product "
+                + "WHERE ProductID = ?";
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, sProductID);
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                oProduct = new Product();
+                oProduct.setProductID(Integer.parseInt(rs.getString("ProductID")));
+                oProduct.setCatagoryID(Integer.parseInt(rs.getString("CategoryID")));
+                oProduct.setPrice(Double.parseDouble(rs.getString("price")));
+                oProduct.setProductName(rs.getString("productName"));
+                oProduct.setProductDesc(rs.getString("productDesc"));
+                oProduct.setImagePath(rs.getString("ImagePath"));
+            }
+            
+            
+        } catch (SQLException e) {
+            System.out.println(e);
+            return null;
+        } finally {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+            return oProduct;
         }
     }
 }

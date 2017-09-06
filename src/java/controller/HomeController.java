@@ -48,11 +48,24 @@ public class HomeController extends HttpServlet {
             String sCategoryName = request.getParameter("category");
             oCategory.setCatagoryName(sCategoryName);
             oCategory = HuskerDA.getCategoryObject(oCategory);
-            ArrayList<Product> oProducts = HuskerDA.getSpecificProduct("" + oCategory.getCatagoryID());
+            ArrayList<Product> oProducts = HuskerDA.getCategoryProducts("" + oCategory.getCatagoryID());
+            //product testing
+           
+            
+            //
             if (oProducts != null) {
                 oSession.setAttribute("oProducts", oProducts);
             }
             url = "/detailView.jsp";
+        }else if(sAction.equals("add")){
+            
+             Product oProduct = HuskerDA.getSpecificProduct("1");
+            String quantity = request.getParameter("quantity");
+            
+            oSession.setAttribute("oProduct", oProduct);
+            oSession.setAttribute("quantity", quantity);
+            
+            url = "/cart.jsp";
         }
 
         boolean bIsValid = true;
