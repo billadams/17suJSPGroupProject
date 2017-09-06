@@ -43,17 +43,17 @@
             <img src="<c:out value="${item.imagePath}"/>" alt="<c:out value="${item.productName}"/>">
         </div>
         <div class="col">
-            <h3><c:out value="${item.productDesc}"/></h3>
+            <p><c:out value="${item.productDesc}"/></p>
         </div>
         <div class="col">
-            <h3><c:out value="${item.price}"/></h3>    
+            <p>$<c:out value="${item.price}"/></p>    
         </div>
         <div class="col">
             <form action="CartServlet" method="Post">
                 <label>Quantity</label>
                 <input type="number" name="quantity">
                 <input type="hidden" name="action" value="add">
-                <input type="hidden" name="product" value="<c:out value="${item.productID}"/>">
+                <input type="hidden" name="productID" value="<c:out value="${item.productID}"/>">
                 <input type="submit" value="Submit">    
             </form>
         </div>
