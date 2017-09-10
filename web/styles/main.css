@@ -5,3 +5,8 @@
 .navbar-brand img {
     padding: 7.5px;
 }
+
+/***** FOOTER STYLES *****/
+footer {
+    text-align: center;
+}
