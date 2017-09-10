@@ -45,6 +45,4 @@
 
 <h1>Husker Electronics</h1>
 
-<h2>Shop 
-
 <c:import url="/includes/footer.html" />
