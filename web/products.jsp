@@ -1,5 +1,5 @@
 <%-- 
-    Document   : detailview
+    Document   : products
     Created on : Sep 6, 2017, 10:20:45 AM
     Author     : nc520675
 --%>
