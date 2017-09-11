@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Sep 11, 2017 at 12:27 AM
+-- Generation Time: Sep 11, 2017 at 06:41 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -36,9 +36,9 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`CategoryID`, `categoryName`) VALUES
-(1, 'SmartPhones'),
-(2, 'Desktop Computers'),
-(3, 'Laptop Computers'),
+(1, 'Phones'),
+(2, 'Desktops'),
+(3, 'Laptops'),
 (4, 'Televisions'),
 (5, 'Accessories');
 
@@ -105,16 +105,16 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`ProductID`, `CategoryID`, `price`, `productName`, `imagePath`) VALUES
-(3, 1, '769.0000', 'iPhone 7 Plus 32GB', '/images/iphone-7s-200x200.png'),
-(4, 1, '594.9900', 'Galaxy S7 32GB', '/images/samsung-galaxy-s7-200x200.png'),
-(5, 2, '559.9900', 'Dell Desktop Computer Optiplex 3040', '/images/dell-optiplex-3040.jpg'),
-(6, 2, '1799.0000', '27\" Retina 5K Display', '/images/27-inch-imac.jpg'),
-(7, 3, '2399.0000', '15\" Macbook Pro', '/images/15-inch-macbook-pro.png'),
-(8, 3, '799.0000', 'Surface Pro 4', '/images/surface-pro-4.jpg'),
-(9, 4, '899.9900', 'Sony 60\" Smart HDTV', '/images/60-inch-samsung-flatscreen.jpg'),
-(10, 4, '1047.9900', 'LG 60\" Smart HDTV', '/images/60-inch-lg-flatscreen'),
-(11, 5, '379.9900', 'Beats by Dre Wireless Headphones', '/images/beats-by-dre-wireless-headphones.jpg'),
-(12, 5, '67.2400', 'Skullcandy Hesh 2 Wireless Headphones', '/images/skullcandy-hesh2-wireless-headphones.jpg');
+(3, 1, '769.0000', 'iPhone 7 Plus 32GB', 'images/iphone-7s-200x200.png'),
+(4, 1, '594.9900', 'Galaxy S7 32GB', 'images/samsung-galaxy-s7-200x200.png'),
+(5, 2, '559.9900', 'Dell Desktop Computer Optiplex 3040', 'images/dell-optiplex-3040.jpg'),
+(6, 2, '1799.0000', '27\" Retina 5K Display', 'images/27-inch-imac.jpg'),
+(7, 3, '2399.0000', '15\" Macbook Pro', 'images/15-inch-macbook-pro.png'),
+(8, 3, '799.0000', 'Surface Pro 4', 'images/surface-pro-4.jpg'),
+(9, 4, '899.9900', 'Sony 60\" Smart HDTV', 'images/60-inch-samsung-flatscreen.jpg'),
+(10, 4, '1047.9900', 'LG 60\" Smart HDTV', 'images/60-inch-lg-flatscreen.jpg'),
+(11, 5, '379.9900', 'Beats by Dre Wireless Headphones', 'images/beats-by-dre-wireless-headphones.jpg'),
+(12, 5, '67.2400', 'Skullcandy Hesh 2 Wireless Headphones', 'images/skullcandy-hesh2-wireless-headphones.jpg');
 
 --
 -- Indexes for dumped tables
