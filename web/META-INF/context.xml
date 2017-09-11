@@ -6,7 +6,7 @@
             name="jdbc/husker" password="" username="root"
             removeAbandoned="true" removeAbandonedTimeout="60" 
             type="javax.sql.DataSource" 
-            url="jdbc:mysql://localhost:3306/husker" />
+            url="jdbc:mysql://localhost:3307/husker" />
 </Context>
 
 

@@ -12,51 +12,23 @@
 <h1>${msg}</h1>
 
 <c:forEach var="product" items="${oProducts}">
-    <div class="row">
-        <div class="col">
+    <!--<div class="row">-->
+        <div class="col-md-4 text-center">
             <p><c:out value="${product.productName}"/></p>
             <img src="<c:out value='${product.imagePath}'/>" alt="Image Text">
             <p><c:out value="${product.price}"/></p>
                         
-            <form action="CartServlet" method="post">
+            <form action="CartServlet" method="post" class="form-inline">
                 <input type="hidden" name="action" value="add">
                 <input type="hidden" name="employeeID" value="<c:out value='${product.productID}' />">
                 <div class="form-group row">
-                    <label for="quantity" class="col-md-3 col-form-label">First name:</label>
-                    <div class="col-md-9">
-                        <input type="number" name="quantity" class="form-control" id="quantity">
-                    </div>
+                    <label for="quantity" class="col-form-label col-md-offset-2 col-md-3">Quantity:</label>
+                    <input type="number" name="quantity" class="form-control col-md-3" id="quantity">
                 </div>
                 <button type="button">Add To Cart</button>
             </form>
-        </div>
-        
-        
-        <div class="col">
-            <p><c:out value="${product.productID}" /></p>
-        </div>
-        <div class="col">
-            <p><c:out value="${product.productName}"/> </p>
-        </div>
-        <div class="col">
-            <img src="<c:out value="${product.imagePath}"/>" alt="<c:out value="${product.productName}"/>">
-        </div>
-        <div class="col">
-            <p><c:out value="${product.productDesc}"/></p>
-        </div>
-        <div class="col">
-            <p>$<c:out value="${product.price}"/></p>    
-        </div>
-        <div class="col">
-            <form action="CartServlet" method="Post">
-                <label>Quantity</label>
-                <input type="number" name="quantity">
-                <input type="hidden" name="action" value="add">
-                <input type="hidden" name="productID" value="<c:out value="${item.productID}"/>">
-                <input type="submit" value="Submit">    
-            </form>
-        </div>
-    </div>
+        </div> <!-- end col-md-4 -->
+    <!--</div>  end row -->
 </c:forEach>
 
 <c:import url="/includes/footer.html" />
