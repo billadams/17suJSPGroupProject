@@ -50,7 +50,7 @@
             <p>$<c:out value="${item.price}"/></p>    
         </div>
         <div class="col">
-            <form action="CartServlet" method="Post">
+            <form action="CartController" method="Post">
                 <label>Quantity</label>
                 <input type="number" name="quantity">
                 <input type="hidden" name="action" value="add">

@@ -1,5 +1,7 @@
 package controller;
 
+import business.*;
+import data.HuskerDA;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -7,7 +9,7 @@ import javax.servlet.http.*;
 //import murach.data.*;
 //import murach.business.*;
 
-public class CartServlet extends HttpServlet {
+public class CartController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request,
@@ -16,6 +18,43 @@ public class CartServlet extends HttpServlet {
         
         ServletContext sc = getServletContext();
         String url = "/index.jsp";
+        HttpSession oSession = request.getSession();
+        String sErrorMessage = "";
+        boolean bIsValid = true;
+        Cart oCart = (Cart)oSession.getAttribute("oCart");
+       // Cart oCart = session.get
+        if (oCart == null) {
+                oCart = new Cart();
+            }
+        
+
+        //Product oProduct = HuskerDA.getSpecificProduct("1");
+        String sAction = request.getParameter("action");
+        String sProductID = request.getParameter("productID");
+        String sQuantity = request.getParameter("quantity");
+        int quantity = 0;
+        try {
+                quantity = Integer.parseInt(sQuantity);
+                //TODO come back and mess with validation logic
+            } catch (Exception e) {
+               bIsValid = false;
+               
+            }
+        Product oProduct = HuskerDA.getSpecificProduct(sProductID);
+        LineItem lineItem = new LineItem();
+        lineItem.setProduct(oProduct);
+            lineItem.setQuantity(quantity);
+        oCart.addItem(lineItem);
+        
+         oSession.setAttribute("oCart", oCart);
+         
+          url = "/products.jsp";  
+            
+        if(sAction.equals("checkout")){
+           url = "/checkout.jsp";
+        }
+        
+        
         //README
         //Whenever add product to cart is selected it will come here
         //we will pull productID

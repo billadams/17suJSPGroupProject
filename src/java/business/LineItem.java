@@ -12,47 +12,31 @@ import java.io.Serializable;
  * @author nc520675
  */
 public class LineItem implements Serializable{
-    private int id;
-    private String productName;
+    //private int id;
+    private Product product;
     private int quantity;
-    private double price;
+    //private double price;
     
     public LineItem(){
         
     }
-    public LineItem(int id, String productName, int quantity, double price){
-        this.id = id;
-        this.productName = productName;
-        this.quantity = quantity;
-        this.price = price;
+    public LineItem(Product product, int quantity){
+        this.product =product;
+        this.quantity= quantity;
     }
 
     /**
-     * @return the id
+     * @return the product
      */
-    public int getId() {
-        return id;
+    public Product getProduct() {
+        return product;
     }
 
     /**
-     * @param id the id to set
+     * @param product the product to set
      */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
-     * @return the productName
-     */
-    public String getProductName() {
-        return productName;
-    }
-
-    /**
-     * @param productName the productName to set
-     */
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     /**
@@ -69,18 +53,6 @@ public class LineItem implements Serializable{
         this.quantity = quantity;
     }
 
-    /**
-     * @return the price
-     */
-    public double getPrice() {
-        return price;
-    }
-
-    /**
-     * @param price the price to set
-     */
-    public void setPrice(double price) {
-        this.price = price;
-    }
+  
     
 }
