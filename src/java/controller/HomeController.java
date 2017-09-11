@@ -9,7 +9,7 @@ import business.Category;
 import business.Product;
 import data.ConnectionPool;
 import data.HuskerDA;
-import static data.HuskerDA.getAllfromDB;
+import static data.HuskerDA.getAllProducts;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -45,15 +45,19 @@ public class HomeController extends HttpServlet {
         String sAction = request.getParameter("action");
         if (sAction.equals("filter")) {
             sCategory = request.getParameter("category");
-            oCategory.setCatagoryName(sCategory.toUpperCase());
+            ArrayList<Product> oProducts = new ArrayList<Product>();
+            if(sCategory.equals("all")){
+              oProducts = HuskerDA.getAllProducts();
+            }
+            else{
+                oCategory.setCatagoryName(sCategory);
+            
             oCategory = HuskerDA.getCategoryObject(oCategory);
-            ArrayList<Product> oProducts = HuskerDA.getCategoryProducts("" + oCategory.getCatagoryID());
-            //product testing
-           
-           
-            //
+            oProducts = HuskerDA.getCategoryProducts("" + oCategory.getCatagoryID());
+            }
+
             if (oProducts != null) {
-                oSession.setAttribute("oProducts", oProducts);
+                request.setAttribute("oProducts", oProducts);
             }
             url = "/products.jsp";
         }else if(sAction.equals("add")){
