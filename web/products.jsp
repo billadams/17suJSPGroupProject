@@ -10,44 +10,42 @@
 <c:import url="/includes/header.html" />
 
 <h1>${msg}</h1>
-<div class="row">
-    <div class="col">
-        <p>Product ID</p>
-    </div>
-    <div class="col">
-        <p>Product Name</p>
-    </div>
-    <div class="col">
-        <p>Image</p>
-    </div>
-    <div class="col">
-        <p>Description</p>
-    </div>
-    <div class="col">
-        <p>Price</p>
-    </div>
-    <div class="col">
-        <p>Order</p>
-    </div>
-</div>
 
-
-<c:forEach var="item" items="${oProducts}">
+<c:forEach var="product" items="${oProducts}">
     <div class="row">
         <div class="col">
-            <p><c:out value="${item.productID}" /></p>
+            <p><c:out value="${product.productName}"/></p>
+            <img src="<c:out value='${product.imagePath}'/>" alt="Image Text">
+            <p><c:out value="${product.price}"/></p>
+                        
+            <form action="CartServlet" method="post">
+                <input type="hidden" name="action" value="add">
+                <input type="hidden" name="employeeID" value="<c:out value='${product.productID}' />">
+                <div class="form-group row">
+                    <label for="quantity" class="col-md-3 col-form-label">First name:</label>
+                    <div class="col-md-9">
+                        <input type="number" name="quantity" class="form-control" id="quantity">
+                    </div>
+                </div>
+                <button type="button">Add To Cart</button>
+            </form>
+        </div>
+        
+        
+        <div class="col">
+            <p><c:out value="${product.productID}" /></p>
         </div>
         <div class="col">
-            <p><c:out value="${item.productName}"/> </p>
+            <p><c:out value="${product.productName}"/> </p>
         </div>
         <div class="col">
-            <img src="<c:out value="${item.imagePath}"/>" alt="<c:out value="${item.productName}"/>">
+            <img src="<c:out value="${product.imagePath}"/>" alt="<c:out value="${product.productName}"/>">
         </div>
         <div class="col">
-            <p><c:out value="${item.productDesc}"/></p>
+            <p><c:out value="${product.productDesc}"/></p>
         </div>
         <div class="col">
-            <p>$<c:out value="${item.price}"/></p>    
+            <p>$<c:out value="${product.price}"/></p>    
         </div>
         <div class="col">
             <form action="CartServlet" method="Post">
