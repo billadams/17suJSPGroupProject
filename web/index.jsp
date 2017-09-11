@@ -71,6 +71,7 @@
     
     <div class="col-md-4">
         <h3>Satisfaction Guarantee</h3>
+        <p>At Husker Electronics, we are committed to your satisfaction.</p>
     </div> <!-- end col-md-4 -->
     
 </div> <!-- end row -->
