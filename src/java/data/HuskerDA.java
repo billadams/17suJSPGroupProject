@@ -253,7 +253,7 @@ public class HuskerDA {
 //        }
 //    }
 
-    public static ArrayList<Product> getAllfromDB() {
+    public static ArrayList<Product> getAllProducts() {
         ArrayList<Product> oProducts = new ArrayList<Product>();
 
         ConnectionPool pool = ConnectionPool.getInstance();
@@ -272,7 +272,7 @@ public class HuskerDA {
                 product.setCatagoryID(Integer.parseInt(rs.getString("CategoryID")));
                 product.setPrice(Double.parseDouble(rs.getString("price")));
                 product.setProductName(rs.getString("productName"));
-                product.setProductDesc(rs.getString("productDesc"));
+                //product.setProductDesc("");
                 product.setImagePath(rs.getString("ImagePath"));
                 oProducts.add(product);
             }
@@ -336,7 +336,7 @@ public class HuskerDA {
                 oProduct.setCatagoryID(Integer.parseInt(rs.getString("CategoryID")));
                 oProduct.setPrice(Double.parseDouble(rs.getString("price")));
                 oProduct.setProductName(rs.getString("productName"));
-                oProduct.setProductDesc(rs.getString("productDesc"));
+                oProduct.setProductDesc("");
                 oProduct.setImagePath(rs.getString("ImagePath"));
                 oProducts.add(oProduct);
             }
