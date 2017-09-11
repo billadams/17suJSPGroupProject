@@ -45,18 +45,17 @@ public class HomeController extends HttpServlet {
         String sAction = request.getParameter("action");
         if (sAction.equals("filter")) {
             sCategory = request.getParameter("category");
-            String sCategoryName = request.getParameter("category");
-            oCategory.setCatagoryName(sCategoryName);
+            oCategory.setCatagoryName(sCategory.toUpperCase());
             oCategory = HuskerDA.getCategoryObject(oCategory);
             ArrayList<Product> oProducts = HuskerDA.getCategoryProducts("" + oCategory.getCatagoryID());
             //product testing
            
-            
+           
             //
             if (oProducts != null) {
                 oSession.setAttribute("oProducts", oProducts);
             }
-            url = "/detailView.jsp";
+            url = "/products.jsp";
         }else if(sAction.equals("add")){
             
              Product oProduct = HuskerDA.getSpecificProduct("1");
