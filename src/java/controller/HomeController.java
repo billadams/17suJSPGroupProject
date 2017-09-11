@@ -57,18 +57,17 @@ public class HomeController extends HttpServlet {
             }
 
             if (oProducts != null) {
-                request.setAttribute("oProducts", oProducts);
+                oSession.setAttribute("oProducts", oProducts);
             }
             url = "/products.jsp";
         }else if(sAction.equals("add")){
             
-             Product oProduct = HuskerDA.getSpecificProduct("1");
-            String quantity = request.getParameter("quantity");
+             
             
-            oSession.setAttribute("oProduct", oProduct);
-            oSession.setAttribute("quantity", quantity);
+//            oSession.setAttribute("oProduct", oProduct);
+//            oSession.setAttribute("quantity", quantity);
             
-            url = "/cart.jsp";
+            url = "/CartController";
         }
 
         boolean bIsValid = true;
