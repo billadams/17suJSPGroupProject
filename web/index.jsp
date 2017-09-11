@@ -44,6 +44,7 @@
 </div>
 
 <div class="row">
+    
     <div class="col-md-8">
         <h1>Husker Electronics</h1>
         <main>Husker Electronics is your superstore for everything electronic.</main>
@@ -54,24 +55,24 @@
                 <h5>iPhone 7 Plus</h5>
                 <img src="images/iphone-7s-200x200.png" alt="iPhone7 Plus">
                 <button class="btn btn-default">All SmartPhones</button>
-            </div>
+            </div> <!-- end col-md-4 -->
             <div class="col-md-4 featured-product text-center">
                 <h5>Samsung HDTV</h5>
                 <img src="images/60-inch-samsung-flatscreen.jpg" alt="Smart HDTV">
                 <button class="btn btn-default">All TVs</button>
-            </div>
+            </div> <!-- end col-md-4 -->
             <div class="col-md-4 featured-product text-center">
                 <h5>Dell Optiplex 3040</h5>
                 <img src="images/dell-optiplex-3040.jpg" alt="Optiplex 3040">
                 <button class="btn btn-default">All Desktops</button>
-            </div>
-        </div>
- 
-
-    </div>
+            </div> <!-- end col-md-4 -->
+        </div> <!-- end row -->
+    </div> <!-- end col-md-8 -->
+    
     <div class="col-md-4">
         <h3>Satisfaction Guarantee</h3>
-    </div>
-</div>
+    </div> <!-- end col-md-4 -->
+    
+</div> <!-- end row -->
 
 <c:import url="/includes/footer.html" />
