@@ -14,6 +14,7 @@
 /***** FOOTER STYLES *****/
 footer {
     border-top: 1px solid #e7e7e7;
+    clear: both;
     margin-top: 30px;
     padding: 15px;
     text-align: center;

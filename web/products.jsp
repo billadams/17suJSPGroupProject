@@ -10,55 +10,25 @@
 <c:import url="/includes/header.html" />
 
 <h1>${msg}</h1>
-<div class="row">
-    <div class="col">
-        <p>Product ID</p>
-    </div>
-    <div class="col">
-        <p>Product Name</p>
-    </div>
-    <div class="col">
-        <p>Image</p>
-    </div>
-    <div class="col">
-        <p>Description</p>
-    </div>
-    <div class="col">
-        <p>Price</p>
-    </div>
-    <div class="col">
-        <p>Order</p>
-    </div>
-</div>
 
-
-<c:forEach var="item" items="${oProducts}">
-    <div class="row">
-        <div class="col">
-            <p><c:out value="${item.productID}" /></p>
-        </div>
-        <div class="col">
-            <p><c:out value="${item.productName}"/> </p>
-        </div>
-        <div class="col">
-            <img src="<c:out value="${item.imagePath}"/>" alt="<c:out value="${item.productName}"/>">
-        </div>
-        <div class="col">
-            <p><c:out value="${item.productDesc}"/></p>
-        </div>
-        <div class="col">
-            <p>$<c:out value="${item.price}"/></p>    
-        </div>
-        <div class="col">
-            <form action="CartController" method="Post">
-                <label>Quantity</label>
-                <input type="number" name="quantity">
+<c:forEach var="product" items="${oProducts}">
+    <!--<div class="row">-->
+        <div class="col-md-4 text-center">
+            <p><c:out value="${product.productName}"/></p>
+            <img src="<c:out value='${product.imagePath}'/>" alt="Image Text">
+            <p><c:out value="${product.price}"/></p>
+                        
+            <form action="CartServlet" method="post" class="form-inline">
                 <input type="hidden" name="action" value="add">
-                <input type="hidden" name="productID" value="<c:out value="${item.productID}"/>">
-                <input type="submit" value="Submit">    
+                <input type="hidden" name="employeeID" value="<c:out value='${product.productID}' />">
+                <div class="form-group row">
+                    <label for="quantity" class="col-form-label col-md-offset-2 col-md-3">Quantity:</label>
+                    <input type="number" name="quantity" class="form-control col-md-3" id="quantity">
+                </div>
+                <button type="button">Add To Cart</button>
             </form>
-        </div>
-    </div>
+        </div> <!-- end col-md-4 -->
+    <!--</div>  end row -->
 </c:forEach>
 
 <c:import url="/includes/footer.html" />
