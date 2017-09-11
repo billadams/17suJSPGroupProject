@@ -14,8 +14,8 @@
 <c:forEach var="product" items="${oProducts}">
     <!--<div class="row">-->
         <div class="col-md-4 text-center">
-            <p><c:out value="${product.productNmagePaame}"/></p>
-            <img src="<c:out value='${product.ith}'/>" alt="Image Text">
+            <p><c:out value="${product.productName}"/></p>
+            <img src="<c:out value='${product.imagePath}'/>" alt="Image Text">
             <p><c:out value="${product.price}"/></p>
                         
             <form action="CartServlet" method="post" class="form-inline">
