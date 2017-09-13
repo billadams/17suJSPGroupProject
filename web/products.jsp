@@ -33,4 +33,4 @@
     <!--</div>  end row -->
 </c:forEach>
 
-<c:import url="/includes/footer.html" />
+<c:import url="/includes/footer.jsp" />
