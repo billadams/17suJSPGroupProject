@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/17suJSPGroupProject">
 
@@ -10,3 +11,17 @@
 </Context>
 
 
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/17suJSPGroupProject">
+
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" 
+            logAbandoned="true" maxActive="100" maxIdle="30" maxWait="10000" 
+            name="jdbc/husker" password="" username="root"
+            removeAbandoned="true" removeAbandonedTimeout="60" 
+            type="javax.sql.DataSource" 
+            url="jdbc:mysql://localhost:3306/husker" />
+</Context>
+
+
+>>>>>>> origin/master

@@ -25,12 +25,55 @@
             <c:forEach var="item" items="${oCart.items}">
                 <tr>
                     <td>
-<<<<<<< HEAD
                         <form action="" method="post">
                             <input type="hidden" name="action" value="cart">
 =======
                         <form action="CartController" method="post">
->>>>>>> 9f65a92a7c02b6a2b368f465dadf60ed209f67cb
+                        <form action="" method="post">
+                            <input type="hidden" name="action" value="cart">
+        </tbody>
+    </table>
+    
+    <form action="" method="post">
+        <input type="hidden" name="action" value="shop">
+        <button type="button" class="btn btn-primary">Continue Shopping</button>
+    </form>
+
+    <form action="" method="post">
+        <input type="hidden" name="action" value="checkout">
+        <button type="button" class="btn btn-primary">Checkout</button>
+    </form>
+
+<c:import url="/includes/footer.jsp" />
+=======
+<%-- 
+    Document   : cart
+    Created on : Sep 10, 2017, 12:53:41 PM
+    Author     : Bill Adams
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:import url="/includes/header.jsp" />
+
+    <h1>Your Cart</h1>
+    
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Quantity</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Amount</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach var="item" items="${oCart.items}">
+                <tr>
+                    <td>
+                        <form action="CartController" method="post">
                             <input type="hidden" name="productID" 
                                    value="<c:out value='${item.product.productID}'/>">
                             <input type=text name="quantity" 
@@ -44,12 +87,7 @@
                     <td>${item.product.priceCurrencyFormat}</td>
                     <td>${item.totalCurrencyFormat}</td>
                     <td>
-<<<<<<< HEAD
-                        <form action="" method="post">
-                            <input type="hidden" name="action" value="cart">
-=======
                         <form action="CartController" method="post">
->>>>>>> 9f65a92a7c02b6a2b368f465dadf60ed209f67cb
                             <input type="hidden" name="productID" 
                                    value="<c:out value='${item.product.productID}'/>">
                             <input type="hidden" name="quantity" 
