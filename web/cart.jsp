@@ -15,14 +15,14 @@
         <thead>
             <tr>
                 <th>Quantity</th>
-                <th>Description</th>
+                <th>Product Name</th>
                 <th>Price</th>
                 <th>Amount</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            <c:forEach var="item" items="${cart.items}">
+            <c:forEach var="item" items="${oCart.items}">
                 <tr>
                     <td>
                         <form action="" method="post">
