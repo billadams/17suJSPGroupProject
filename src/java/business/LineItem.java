@@ -6,6 +6,7 @@
 package business;
 
 import java.io.Serializable;
+import java.text.NumberFormat;
 
 /**
  *
@@ -53,6 +54,15 @@ public class LineItem implements Serializable{
         this.quantity = quantity;
     }
 
+     public double getTotal() {
+        double total = this.product.getPrice() * this.quantity;
+        return total;
+    }
+
+    public String getTotalCurrencyFormat() {
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        return currency.format(this.getTotal());
+    }
   
     
 }

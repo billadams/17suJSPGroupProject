@@ -24,13 +24,14 @@ public class CartController extends HttpServlet {
         Cart oCart = (Cart)oSession.getAttribute("oCart");
        // Cart oCart = session.get
         if (oCart == null) {
-                oCart = new Cart();
+                oCart = new Cart();                
             }
         
 
         //Product oProduct = HuskerDA.getSpecificProduct("1");
         String sAction = request.getParameter("action");
-        String sProductID = request.getParameter("productID");
+        if(sAction.equals("add")){
+            String sProductID = request.getParameter("productID");
         String sQuantity = request.getParameter("quantity");
         int quantity = 0;
         try {
@@ -45,10 +46,13 @@ public class CartController extends HttpServlet {
         lineItem.setProduct(oProduct);
             lineItem.setQuantity(quantity);
         oCart.addItem(lineItem);
-        
+             
+       
          oSession.setAttribute("oCart", oCart);
          
           url = "/products.jsp";  
+        }
+        
             
         if(sAction.equals("checkout")){
            url = "/checkout.jsp";
