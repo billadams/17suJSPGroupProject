@@ -24,6 +24,8 @@
             <c:forEach var="item" items="${oCart.items}">
                 <tr>
                     <td>
+                        <input type="hidden" name="productID" 
+                               value="<c:out value='${item.product.productID}'/>">
                         <input type=text name="quantity" 
                             value="<c:out value='${item.quantity}'/>" id="quantity">
                     </td>
