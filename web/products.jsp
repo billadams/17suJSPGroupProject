@@ -19,7 +19,7 @@
             <p><c:out value="${product.priceCurrencyFormat}"/></p>
                         
             <form action="CartController" method="post">
-                <input type="hidden" name="action" value="add">
+                <input type="hidden" name="action" value="cart">
                 <input type="hidden" name="productID" value="<c:out value='${product.productID}' />">
                 <div class="form-group row">
                     <label for="quantity" class="col-md-offset-3 col-md-3 col-form-label">Quantity:</label>

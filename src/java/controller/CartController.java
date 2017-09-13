@@ -62,8 +62,37 @@ public class CartController extends HttpServlet {
          
           url = "/products.jsp";  
         }
-        else if(sAction.equals("remove")){
-            
+        else if(sAction.equals("update")){
+            String sProductID = request.getParameter("productID");
+        String sQuantity = request.getParameter("quantity");
+        int quantity = 0;
+        try {
+                quantity = Integer.parseInt(sQuantity);
+                //TODO come back and mess with validation logic
+            } catch (Exception e) {
+               bIsValid = false;
+               
+            }
+        Product oProduct = HuskerDA.getSpecificProduct(sProductID);
+        LineItem lineItem = new LineItem();
+        lineItem.setProduct(oProduct);
+            lineItem.setQuantity(quantity);
+        if(quantity == 0){
+        //remove item
+        oCart.removeItem(lineItem);
+        }
+        else if(quantity >0){
+            //add item logic
+        
+        
+        oCart.updateItem(lineItem);
+        }
+
+             
+       
+         oSession.setAttribute("oCart", oCart);
+         
+          url = "/products.jsp";   
         }
         
             
