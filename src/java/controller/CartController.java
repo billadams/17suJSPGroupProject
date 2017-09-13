@@ -30,7 +30,8 @@ public class CartController extends HttpServlet {
 
         //Product oProduct = HuskerDA.getSpecificProduct("1");
         String sAction = request.getParameter("action");
-        String sProductID = request.getParameter("productID");
+        if(sAction.equals("add")){
+            String sProductID = request.getParameter("productID");
         String sQuantity = request.getParameter("quantity");
         int quantity = 0;
         try {
@@ -49,6 +50,8 @@ public class CartController extends HttpServlet {
          oSession.setAttribute("oCart", oCart);
          
           url = "/products.jsp";  
+        }
+        
             
         if(sAction.equals("checkout")){
            url = "/checkout.jsp";
