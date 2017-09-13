@@ -11,6 +11,21 @@
     margin-bottom: 10px;
 }
 
+/***** PRODUCTS STYLES *****/
+.product {
+    margin-bottom: 30px;
+}
+.product img {
+    margin-bottom: 5px;
+    width: 50%
+}
+.product label {
+    font-weight: normal;
+}
+.product .col-md-3 {
+    padding: 0;
+}
+
 /***** FOOTER STYLES *****/
 footer {
     border-top: 1px solid #e7e7e7;
