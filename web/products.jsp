@@ -18,9 +18,9 @@
             <p><c:out value="${product.productName}"/></p>
             <p><c:out value="${product.priceCurrencyFormat}"/></p>
                         
-            <form action="CartServlet" method="post">
+            <form action="CartController" method="post">
                 <input type="hidden" name="action" value="add">
-                <input type="hidden" name="employeeID" value="<c:out value='${product.productID}' />">
+                <input type="hidden" name="productID" value="<c:out value='${product.productID}' />">
                 <div class="form-group row">
                     <label for="quantity" class="col-md-offset-3 col-md-3 col-form-label">Quantity:</label>
                     <div class="col-md-3">
