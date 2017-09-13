@@ -401,14 +401,23 @@ public class HuskerDA {
                  = "INSERT INTO customer (firstName, LastName, street, city, state, zip, email, phone)  "
                     + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
-            ps = connection.prepareStatement(query);
+            ps = connection.prepareStatement(query, ps.RETURN_GENERATED_KEYS);
             ps.setString(1, c.getFirstName());
-            ps.setString(2, c.getMiddleName());
-            ps.setString(3, c.getLastName());
-            ps.setString(4, c.getEmployeeID());
-            ps.setString(5, c.getBirthDate().toString());
-            ps.setString(6, c.getHireDate().toString());
-            return ps.executeUpdate();
+            ps.setString(2, c.getLastName());
+            ps.setString(3, c.getStreet());
+            ps.setString(4, c.getCity());
+            ps.setString(5, c.getState());
+            ps.setString(6, c.getZip());
+            ps.setString(7, c.getEmail());
+            ps.setString(8, c.getPhone());
+            ps.executeUpdate();
+            
+
+   ResultSet rs = ps.getGeneratedKeys();
+    rs.next();
+   int auto_id = rs.getInt(1);
+   return auto_id;
+
         } catch (SQLException e) {
             System.out.println(e);
             return 0;
