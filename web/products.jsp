@@ -27,7 +27,7 @@
                         <input type="number" name="quantity" class="form-control" id="quantity">
                     </div>
                 </div>
-                <button type="button">Add To Cart</button>
+                <button class="btn btn-default">Add To Cart</button>
             </form>
         </div> <!-- end col-md-3 -->
     <!--</div>  end row -->
