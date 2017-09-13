@@ -6,6 +6,7 @@
 package data;
 
 import business.Category;
+import business.Customer;
 import business.Product;
 import java.sql.Connection;
 import java.sql.Date;
@@ -386,6 +387,34 @@ public class HuskerDA {
             DBUtil.closePreparedStatement(ps);
             pool.freeConnection(connection);
             return oProduct;
+        }
+    }
+            
+                public static int AddCustomer(Customer c) {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+//Customer oCustomer = new Customer(0,sFirstName,sLastName,sStreet,sCity,sState,sZip,sPhoneNumber,sEmail);
+        String query
+//                = "INSERT INTO customer (firstName, LastName, street, city, state, zip, email, phone) "
+//                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                 = "INSERT INTO customer (firstName, LastName, street, city, state, zip, email, phone)  "
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, c.getFirstName());
+            ps.setString(2, c.getMiddleName());
+            ps.setString(3, c.getLastName());
+            ps.setString(4, c.getEmployeeID());
+            ps.setString(5, c.getBirthDate().toString());
+            ps.setString(6, c.getHireDate().toString());
+            return ps.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+            return 0;
+        } finally {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
         }
     }
 }

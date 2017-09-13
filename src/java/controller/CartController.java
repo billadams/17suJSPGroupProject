@@ -97,6 +97,17 @@ public class CartController extends HttpServlet {
         
             
         if(sAction.equals("checkout")){
+           String sFirstName = request.getParameter("firstName"); 
+           String sLastName = request.getParameter("lastName"); 
+           String sStreet = request.getParameter("street"); 
+           String sCity = request.getParameter("city"); 
+           String sState = request.getParameter("state"); 
+           String sZip = request.getParameter("zip"); 
+           String sEmail = request.getParameter("email"); 
+           String sPhoneNumber = request.getParameter("phone"); 
+           //int customerID, String firstName, String lastName, String street, String city, String state, String zip, String phone, String email
+           Customer oCustomer = new Customer(0,sFirstName,sLastName,sStreet,sCity,sState,sZip,sPhoneNumber,sEmail);
+            
            url = "/checkout.jsp";
         }
         
