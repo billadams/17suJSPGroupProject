@@ -1,3 +1,12 @@
+<%-- 
+    Document   : header
+    Created on : Sep 13, 2017, 8:49:47 AM
+    Author     : Bill Adams
+--%>
+
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
     <head>

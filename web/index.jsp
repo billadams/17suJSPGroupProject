@@ -7,7 +7,7 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:import url="/includes/header.html" />
+<c:import url="/includes/header.jsp" />
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -82,4 +82,4 @@
     
 </div> <!-- end row -->
 
-<c:import url="/includes/footer.html" />
+<c:import url="/includes/footer.jsp" />
