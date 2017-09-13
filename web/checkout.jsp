@@ -4,11 +4,11 @@
     Author     : Bill Adams
 --%>
 
-<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:import url="/includes/header.html" />
+<c:import url="/includes/header.jsp" />
 
     <h1>Checkout</h1>
 
-<c:import url="/includes/footer.html" />
+<c:import url="/includes/footer.jsp" />

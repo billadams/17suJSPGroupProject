@@ -9,6 +9,28 @@
 /***** HOME STYLES *****/
 .featured-product img {
     margin-bottom: 10px;
+    width: 50%;
+}
+
+/***** PRODUCTS STYLES *****/
+.product {
+    /*box-shadow: 0px 1px 2px #e7e7e7;*/
+    padding-top: 15px;
+    padding-bottom: 15px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+.product:hover {
+    box-shadow: 0px 5px 15px #e7e7e7;
+}
+.product img {
+    margin-bottom: 15px;
+    width: 50%
+}
+.product label {
+    font-weight: normal;
+}
+.product .col-md-3 {
+    padding: 0;
 }
 
 /***** FOOTER STYLES *****/

@@ -1,3 +1,9 @@
+<%-- 
+    Document   : footer
+    Created on : Sep 13, 2017, 8:49:55 AM
+    Author     : Bill Adams
+--%>
+
         
             <footer>Husker Electronics, Copyright &copy; 2017</footer>
         </div> <!-- end container -->
