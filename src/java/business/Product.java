@@ -6,6 +6,7 @@
 package business;
 
 import java.io.Serializable;
+import java.text.NumberFormat;
 
 /**
  *
@@ -113,6 +114,11 @@ public class Product implements Serializable {
      */
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+    
+    public String getPriceCurrencyFormat() {
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        return currency.format(price);
     }
     
 }
