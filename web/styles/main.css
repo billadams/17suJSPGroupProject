@@ -14,10 +14,16 @@
 
 /***** PRODUCTS STYLES *****/
 .product {
-    margin-bottom: 30px;
+    /*box-shadow: 0px 1px 2px #e7e7e7;*/
+    padding-top: 15px;
+    padding-bottom: 15px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+.product:hover {
+    box-shadow: 0px 5px 15px #e7e7e7;
 }
 .product img {
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     width: 50%
 }
 .product label {
