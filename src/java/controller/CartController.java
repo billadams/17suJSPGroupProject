@@ -24,7 +24,7 @@ public class CartController extends HttpServlet {
         Cart oCart = (Cart)oSession.getAttribute("oCart");
        // Cart oCart = session.get
         if (oCart == null) {
-                oCart = new Cart();
+                oCart = new Cart();                
             }
         
 
@@ -46,7 +46,8 @@ public class CartController extends HttpServlet {
         lineItem.setProduct(oProduct);
             lineItem.setQuantity(quantity);
         oCart.addItem(lineItem);
-        
+             
+       
          oSession.setAttribute("oCart", oCart);
          
           url = "/products.jsp";  
