@@ -25,12 +25,18 @@
             <c:forEach var="item" items="${oCart.items}">
                 <tr>
                     <td>
+<<<<<<< HEAD
                         <form action="" method="post">
                             <input type="hidden" name="action" value="cart">
+=======
+                        <form action="CartController" method="post">
+>>>>>>> 9f65a92a7c02b6a2b368f465dadf60ed209f67cb
                             <input type="hidden" name="productID" 
                                    value="<c:out value='${item.product.productID}'/>">
                             <input type=text name="quantity" 
                                    value="<c:out value='${item.quantity}'/>" id="quantity">
+                            <input type="hidden" name="action" 
+                                   value="update">
                             <input type="submit" value="Update">
                         </form>
                     </td>
@@ -38,12 +44,18 @@
                     <td>${item.product.priceCurrencyFormat}</td>
                     <td>${item.totalCurrencyFormat}</td>
                     <td>
+<<<<<<< HEAD
                         <form action="" method="post">
                             <input type="hidden" name="action" value="cart">
+=======
+                        <form action="CartController" method="post">
+>>>>>>> 9f65a92a7c02b6a2b368f465dadf60ed209f67cb
                             <input type="hidden" name="productID" 
                                    value="<c:out value='${item.product.productID}'/>">
                             <input type="hidden" name="quantity" 
                                    value="0">
+                            <input type="hidden" name="action" 
+                                   value="cart">
                             <input type="submit" value="Remove Item">
                         </form>
                     </td>
