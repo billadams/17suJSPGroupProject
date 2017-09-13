@@ -15,7 +15,7 @@
         <thead>
             <tr>
                 <th>Quantity</th>
-                <th>Description</th>
+                <th>Product Name</th>
                 <th>Price</th>
                 <th>Amount</th>
                 <th></th>
