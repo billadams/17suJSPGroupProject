@@ -14,26 +14,25 @@
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>Quantity</th>
-                <th>Product Name</th>
-                <th>Price</th>
-                <th>Amount</th>
+                <th class="text-center">Quantity</th>
+                <th class="text-center">Product Name</th>
+                <th class="text-center">Price</th>
+                <th class="text-center">Amount</th>
             </tr>
         </thead>
         <tbody>
             <c:forEach var="item" items="${oCart.items}">
                 <tr>
-                    <td>
-                        <input type="hidden" name="productID" 
-                               value="<c:out value='${item.product.productID}'/>">
-                        <input type=text name="quantity" 
-                            value="<c:out value='${item.quantity}'/>" id="quantity">
-                    </td>
-                    <td><c:out value='${item.product.productName}'/></td>
-                    <td>${item.product.priceCurrencyFormat}</td>
-                    <td>${item.totalCurrencyFormat}</td>
+                    <td class="text-center"><c:out value="${item.quantity}" /></td>
+                    <td class="text-center"><c:out value="${item.product.productName}" /></td>
+                    <td class="text-right">${item.product.priceCurrencyFormat}</td>
+                    <td class="text-right">${item.totalCurrencyFormat}</td>
                 </tr>
             </c:forEach>
+                <tr>
+                    <td colspan="3" class="text-right">Cart Total</td>
+                    <td class="text-right text">${oCart.cartTotalFormatted}</td>
+                </tr>
         </tbody>
     </table>
 

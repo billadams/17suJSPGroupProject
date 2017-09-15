@@ -12,7 +12,8 @@ import java.text.NumberFormat;
  *
  * @author nc520675
  */
-public class LineItem implements Serializable{
+public class LineItem implements Serializable {
+    
     //private int id;
     private Product product;
     private int quantity;

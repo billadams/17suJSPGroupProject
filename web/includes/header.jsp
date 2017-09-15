@@ -61,7 +61,9 @@
                         </form>-->
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <a href="cart.jsp"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart (1)</a>
+                                <a href="cart.jsp">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart (<c:out value="${cartTotalItems}" />)
+                                </a>
                             </li>
 <!--                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>

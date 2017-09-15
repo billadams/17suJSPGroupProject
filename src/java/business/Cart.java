@@ -3,16 +3,17 @@ package business;
 import java.io.Serializable;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Cart implements Serializable {
 
-    private ArrayList<LineItem> items;
+    private List<LineItem> items;
 
     public Cart() {
         items = new ArrayList<LineItem>();
     }
 
-    public ArrayList<LineItem> getItems() {
+    public List<LineItem> getItems() {
         return items;
     }
 
@@ -59,7 +60,18 @@ public class Cart implements Serializable {
         }
     }
     
+    public String getCartTotalFormatted() {
+        
+        double total = 0;
+        
+        for (LineItem item : items) {
+            
+            total += item.getTotal();
+            
+        }
+        
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        return currency.format(total);
 
-
-  
+    }
 }

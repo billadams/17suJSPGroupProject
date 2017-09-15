@@ -58,14 +58,14 @@
         </tbody>
     </table>
     
-    <form action="" method="post">
+    <form action="CartController" method="post">
         <input type="hidden" name="action" value="shop">
-        <button type="button" class="btn btn-primary">Continue Shopping</button>
+        <button class="btn btn-primary">Continue Shopping</button>
     </form>
 
-    <form action="" method="post">
+    <form action="CartController" method="post">
         <input type="hidden" name="action" value="checkout">
-        <button type="button" class="btn btn-primary">Checkout</button>
+        <button class="btn btn-primary">Checkout</button>
     </form>
 
 <c:import url="/includes/footer.jsp" />
