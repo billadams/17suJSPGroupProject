@@ -9,8 +9,12 @@
 
 <c:import url="/includes/header.jsp" />
 
-<h1>Contact</h1><br>
-    <h4>For questions call 402-555-5555 or email qustions@huskerelectronics.com</h4>
-    <h4>For advertisements email advert@huskerelectronics.com</h4>
+<div class="col-md-8">
+    
+    <h1>Contact</h1>
+    <p>For questions call 402-555-5555 or email questions@huskerelectronics.com</p>
+    <p>For advertisements email advert@huskerelectronics.com</p>
+    
+</div>
            
 <c:import url="/includes/footer.jsp" />

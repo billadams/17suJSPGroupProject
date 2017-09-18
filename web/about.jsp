@@ -9,9 +9,14 @@
 
 <c:import url="/includes/header.jsp" />
 
-<h1>About</h1><br>
-    <h4>Husker Electronics is an eCommerce web-site that sells cell phones, headphones, tv's, desktop computers, and laptops.
-    Husker Electronics was founded in 2017 in Lincoln Nebraska.</h4>
+<div class="col-md-8">
+    
+    <h1>About</h1>
+    <p>Husker Electronics is an online electronics super store that sells cell phones, headphones, televisions, desktop computers, and laptop computers.</p>
+    <p>Husker Electronics was founded in 2017 in Lincoln Nebraska.</p>
+    
+</div> <!-- end col-md-8 -->
+
     
 
 <c:import url="/includes/footer.jsp" />

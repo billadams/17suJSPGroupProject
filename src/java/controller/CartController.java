@@ -66,6 +66,12 @@ public class CartController extends HttpServlet {
             }
 
             oSession.setAttribute("oCart", oCart);
+            
+            //Whenever add product to cart is selected it will come here
+            //we will pull productID
+            // Get the count of all items in the shopping cart.
+            cartTotalItems = oCart.getCount();
+            oSession.setAttribute("cartTotalItems", cartTotalItems);
 
         } else if (sAction.equals("update")) {
             String sProductID = request.getParameter("productID");
@@ -94,12 +100,16 @@ public class CartController extends HttpServlet {
             }
 
             oSession.setAttribute("oCart", oCart);
+            
+            //Whenever add product to cart is selected it will come here
+            //we will pull productID
+            // Get the count of all items in the shopping cart.
+            cartTotalItems = oCart.getCount();
+            oSession.setAttribute("cartTotalItems", cartTotalItems);
 
             url = "/cart.jsp";
         } else if (sAction.equals("checkout")) {
             oCart = (Cart) oSession.getAttribute("oCart");
-
-            State states;
 
             request.setAttribute("oCart", oCart);
             url = "/checkout.jsp";
@@ -174,9 +184,7 @@ public class CartController extends HttpServlet {
 
             }
 
-            //int customerID, String firstName, String lastName, String street, String city, String state, String zip, String phone, String email
             Customer oCustomer = new Customer(0, sFirstName, sLastName, sStreet, sCity, sState, sZip, sPhoneNumber, sEmail);
-            // Customer oCustomerTest = new Customer(0, "s","s","s","s","s","s","s","s"); 
 
             // If errorMessages comes back empty (i.e. everything validated), 
             // create the customer and add it to the session.
@@ -198,7 +206,15 @@ public class CartController extends HttpServlet {
                 request.setAttribute("oCustomer", oCustomer);
                 request.setAttribute("oOrder", oOrder);
                 request.setAttribute("oCart", oCart);
-//                oSession.invalidate();
+                
+                oSession.removeAttribute("oCart");
+                
+                //Whenever add product to cart is selected it will come here
+                //we will pull productID
+                // Get the count of all items in the shopping cart.
+                cartTotalItems = 0;
+                oSession.setAttribute("cartTotalItems", cartTotalItems);
+                
                 url = "/thanks.jsp";
 
             } else {
@@ -212,14 +228,6 @@ public class CartController extends HttpServlet {
             }
 
         }
-
-        //README
-        //Whenever add product to cart is selected it will come here
-        //we will pull productID
-        // Get the count of all items in the shopping cart.
-        oSession.setAttribute("oCart", oCart);
-        cartTotalItems = oCart.getCount();
-        oSession.setAttribute("cartTotalItems", cartTotalItems);
 
         sc.getRequestDispatcher(url)
                 .forward(request, response);
