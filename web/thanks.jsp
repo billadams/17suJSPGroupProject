@@ -14,8 +14,8 @@
     <p>Order ID: ${oOrder.orderID}</p>
     <p>Order Date: ${oOrder.orderDateFormatted}</p>
     <c:forEach var="item" items="${oCart.items}">
-        <p>Product Name: <c:out value="${items.productName}" /></p>
-        <p>Quantity: <c:out value="${items.quantity}" /></p>
+        <p>Product Name: <c:out value="${item.product.productName}" /></p>
+        <p>Quantity: <c:out value="${item.quantity}" /></p>
     </c:forEach>
     <p>Total: <c:out value="${oCart.cartTotalFormatted}" /></p>
 

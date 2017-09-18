@@ -198,7 +198,7 @@ public class CartController extends HttpServlet {
                 request.setAttribute("oCustomer", oCustomer);
                 request.setAttribute("oOrder", oOrder);
                 request.setAttribute("oCart", oCart);
-                oSession.invalidate();
+//                oSession.invalidate();
                 url = "/thanks.jsp";
 
             } else {
