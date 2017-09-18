@@ -179,10 +179,8 @@ public class CartController extends HttpServlet {
             }
             
             //int customerID, String firstName, String lastName, String street, String city, String state, String zip, String phone, String email
-            Customer oCustomer = new Customer(0, sFirstName,sLastName,sStreet,sCity,sState,sZip,sPhoneNumber,sEmail);
+            Customer oCustomer = new Customer(0, sFirstName,sLastName, sStreet,sCity,sState,sZip,sPhoneNumber,sEmail);
             Customer oCustomerTest = new Customer(0, "s","s","s","s","s","s","s","s"); 
-
-            String breakpoint = "";
             
             // If errorMessages comes back empty (i.e. everything validated), 
             // create the customer and add it to the session.

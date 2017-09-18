@@ -38,8 +38,8 @@
                         </form>
                     </td>
                     <td class="col-md-4"><c:out value='${item.product.productName}'/></td>
-                    <td class="col-md-2">${item.product.priceCurrencyFormat}</td>
-                    <td class="col-md-2">${item.totalCurrencyFormat}</td>
+                    <td class="col-md-2 text-right">${item.product.priceCurrencyFormat}</td>
+                    <td class="col-md-2 text-right">${item.totalCurrencyFormat}</td>
                     <td class="col-md-2 text-center">
                         <form action="" method="post">
                             <input type="hidden" name="action" 
@@ -55,6 +55,10 @@
                     </td>
                 </tr>
             </c:forEach>
+            <tr class="total-row">
+                <td colspan="3" class="text-right">Cart Total</td>
+                <td class="text-right text">${oCart.cartTotalFormatted}</td>
+            </tr>
         </tbody>
     </table>
     

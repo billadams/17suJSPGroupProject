@@ -100,7 +100,7 @@
             <div class="form-group row">
                 <label for="zipcode" class="col-md-3 col-form-label">City:</label>
                 <div class="col-md-9">
-                    <input type="text" name="zipcode" class="form-control" id="zipcode" value="<c:out value='${oCustomer.zipcode}' />">
+                    <input type="text" name="zipcode" class="form-control" id="zipcode" value="<c:out value='${oCustomer.zip}' />">
                 </div>
             </div> <!-- end form-group -->
             
