@@ -7,6 +7,7 @@ package data;
 
 import business.Category;
 import business.Customer;
+import business.Order;
 import business.Product;
 import java.sql.Connection;
 import java.sql.Date;
@@ -425,5 +426,61 @@ public class HuskerDA {
             DBUtil.closePreparedStatement(ps);
             pool.freeConnection(connection);
         }
+    }
+                
+                public static int CreateOrder(Order c) {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        String query
+                 = "INSERT INTO orders (orderDate, CustomerID)  "
+                    + "VALUES (?, ?)";
+  try {
+            ps = connection.prepareStatement(query, ps.RETURN_GENERATED_KEYS);
+            ps.setString(1, c.getOrderDate().toString());
+            ps.setString(2, ""+c.getCustomerID());
+            ps.executeUpdate();
+            
+
+   ResultSet rs = ps.getGeneratedKeys();
+    rs.next();
+   int auto_id = rs.getInt(1);
+   return auto_id;
+
+        } catch (SQLException e) {
+            System.out.println(e);
+            return 0;
+        } finally {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+        
+
+    }
+                
+        public static int TotalOrder(String sProductName, int quantity, double total, int orderID) {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        String query
+                 = "INSERT INTO lineitem (productName, quantity, price, OrderID)  "
+                    + "VALUES (?, ?, ?, ?)";
+  try {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, sProductName);
+            ps.setString(2, ""+quantity);
+            ps.setString(3, ""+total);
+            ps.setString(4, ""+orderID);
+           return ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e);
+            return 0;
+        } finally {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+        
+
     }
 }

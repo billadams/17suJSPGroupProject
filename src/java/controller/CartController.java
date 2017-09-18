@@ -3,6 +3,7 @@ package controller;
 import business.*;
 import data.HuskerDA;
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.*;
@@ -183,13 +184,29 @@ public class CartController extends HttpServlet {
             
             //int customerID, String firstName, String lastName, String street, String city, String state, String zip, String phone, String email
             Customer oCustomer = new Customer(0, sFirstName,sLastName, sStreet,sCity,sState,sZip,sPhoneNumber,sEmail);
-            Customer oCustomerTest = new Customer(0, "s","s","s","s","s","s","s","s"); 
+           // Customer oCustomerTest = new Customer(0, "s","s","s","s","s","s","s","s"); 
             
             // If errorMessages comes back empty (i.e. everything validated), 
             // create the customer and add it to the session.
             if (errorMessages.isEmpty()) {
-
-                int nCatcher = HuskerDA.AddCustomer(oCustomerTest);
+                
+                int nCustomerID = HuskerDA.AddCustomer(oCustomer);
+                oCustomer.setCustomerID(nCustomerID);
+                Order oOrder = new Order(0,LocalDate.now(),nCustomerID);
+                oOrder.setOrderID(HuskerDA.CreateOrder(oOrder));
+                //Create order
+                List<LineItem> totalOrder = oCart.getItems();
+                for(LineItem oItem:totalOrder){
+                    oItem.getProduct().getProductName();
+                    oItem.getQuantity();
+                    oItem.getTotal();
+                    oOrder.getOrderID();
+                    HuskerDA.TotalOrder(oItem.getProduct().getProductName(), oItem.getQuantity(), oItem.getTotal(), oOrder.getOrderID());                    
+                }
+                request.setAttribute("oCustomer", oCustomer);
+                request.setAttribute("oOrder", oOrder);
+                request.setAttribute("oCart", oCart);
+                oSession.invalidate();
                 url = "/thanks.jsp";
 
             } else {

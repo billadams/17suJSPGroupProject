@@ -15,15 +15,17 @@ import java.time.LocalDate;
 public class Order implements Serializable {
     private int orderID;
     private LocalDate orderDate;
+    private int customerID;
     
     
     public Order(){
         
     }
     
-    public Order(int orderID, LocalDate orderDate){
+    public Order(int orderID, LocalDate orderDate, int customerID){
         this.orderDate = orderDate;
         this.orderID = orderID;
+        this.customerID = customerID;
     }
 
     /**
@@ -52,6 +54,20 @@ public class Order implements Serializable {
      */
     public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
+    }
+
+    /**
+     * @return the customerID
+     */
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    /**
+     * @param customerID the customerID to set
+     */
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
     }
     
     
