@@ -1,0 +1,16 @@
+    public String getOrderDateFormatted() {
+        
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+        String birthDateFormatted = dtf.format(todaysDateHere);
+
+        return birthDateFormatted;
+        
+    }
+    
+    public String getCurrencyFormat() {
+
+    NumberFormat currency = NumberFormat.getCurrencyInstance();
+
+    return currency.format(currencyToFormat);
+    
+    }
