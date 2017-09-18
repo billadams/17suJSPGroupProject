@@ -7,22 +7,23 @@ package business;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
  * @author nc520675
  */
 public class Order implements Serializable {
+
     private int orderID;
     private LocalDate orderDate;
     private int customerID;
-    
-    
-    public Order(){
-        
+
+    public Order() {
+
     }
-    
-    public Order(int orderID, LocalDate orderDate, int customerID){
+
+    public Order(int orderID, LocalDate orderDate, int customerID) {
         this.orderDate = orderDate;
         this.orderID = orderID;
         this.customerID = customerID;
@@ -69,6 +70,13 @@ public class Order implements Serializable {
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
-    
-    
+
+    public String getOrderDateFormatted() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+
+        String DateFormatted = dtf.format(this.orderDate);
+
+        return DateFormatted;
+    }
+
 }
