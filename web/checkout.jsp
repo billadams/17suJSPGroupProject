@@ -11,7 +11,7 @@
 
     <h1>Checkout</h1>
     
-    <table class="table table-bordered table-striped checkout">
+    <table class="table table-bordered table-striped cart">
         <thead>
             <tr>
                 <th class="text-center">Quantity</th>
