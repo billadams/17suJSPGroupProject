@@ -24,23 +24,23 @@
         <tbody>
             <c:forEach var="item" items="${oCart.items}">
                 <tr>
-                    <td>
+                    <td class="col-md-2">
                         <form action="" method="post">
                             <input type="hidden" name="action" 
                                    value="cart">
                             <input type="hidden" name="productID" 
                                    value="<c:out value='${item.product.productID}'/>">
-                            <input type=text name="quantity" 
+                            <input type=text name="quantity" class="col-md-3" 
                                    value="<c:out value='${item.quantity}'/>" id="quantity">
                             <input type="hidden" name="action" 
                                    value="update">
                             <input type="submit" value="Update">
                         </form>
                     </td>
-                    <td><c:out value='${item.product.productName}'/></td>
-                    <td>${item.product.priceCurrencyFormat}</td>
-                    <td>${item.totalCurrencyFormat}</td>
-                    <td>
+                    <td class="col-md-4"><c:out value='${item.product.productName}'/></td>
+                    <td class="col-md-2">${item.product.priceCurrencyFormat}</td>
+                    <td class="col-md-2">${item.totalCurrencyFormat}</td>
+                    <td class="col-md-2 text-center">
                         <form action="" method="post">
                             <input type="hidden" name="action" 
                                    value="cart">

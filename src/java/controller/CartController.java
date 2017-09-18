@@ -119,6 +119,8 @@ public class CartController extends HttpServlet {
             int nCatcher = HuskerDA.AddCustomer(oCustomerTest);
             String breakpoint = "";
             
+            url = "/thanks.jsp";
+            
         }
         
         //README

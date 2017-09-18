@@ -33,6 +33,27 @@
     padding: 0;
 }
 
+/***** CHECKOUT STYLES *****/
+table.checkout {
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+tbody tr.total-row {
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+.table-striped > tbody > tr.total-row {
+    background-color: #ffffff;
+    font-weight: bold;
+}
+tbody tr.total-row td {
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+
 /***** FOOTER STYLES *****/
 footer {
     border-top: 1px solid #e7e7e7;
