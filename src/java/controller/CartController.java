@@ -58,15 +58,17 @@ public class CartController extends HttpServlet {
             if (quantity == 0){
                 //remove item
                 oCart.removeItem(lineItem);
+                url="/cart.jsp";
             }
             else if (quantity >0){
                 //add item logic
                 oCart.addItem(lineItem);
+                  url = "/products.jsp";  
             }
                 
             oSession.setAttribute("oCart", oCart);
 
-            url = "/products.jsp";  
+          
         }
         else if (sAction.equals("update")) {
             String sProductID = request.getParameter("productID");
@@ -93,11 +95,12 @@ public class CartController extends HttpServlet {
             else if (quantity >0){
                 //add item logic
                 oCart.updateItem(lineItem);
+  
             }
 
              oSession.setAttribute("oCart", oCart);
 
-              url = "/products.jsp";   
+             url="/cart.jsp"; 
         }            
         else if (sAction.equals("checkout")){
             oCart = (Cart) oSession.getAttribute("oCart");
@@ -206,6 +209,7 @@ public class CartController extends HttpServlet {
         //we will pull productID
 
         // Get the count of all items in the shopping cart.
+        oSession.setAttribute("oCart", oCart);
         cartTotalItems = oCart.getCount();
         oSession.setAttribute("cartTotalItems", cartTotalItems);
         
