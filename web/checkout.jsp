@@ -40,32 +40,43 @@
         <form action="CartController" method="post">
             <input type="hidden" name="action" value="completeOrder">
             <legend>Please enter your information</legend>
+            
+            <c:if test="${errorMessages != null}">
+                <div class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <c:forEach var="error_message" items="${errorMessages}">
+                        <ul>
+                            <li>${error_message}</li>
+                        </ul>
+                    </c:forEach>
+                </div>
+            </c:if>  
 
             <div class="form-group row">
                 <label for="first-name" class="col-md-3 col-form-label">First name:</label>
                 <div class="col-md-9">
-                    <input type="text" name="firstName" class="form-control" id="first-name" value="<c:out value='${customer.firstName}' />">
+                    <input type="text" name="firstName" class="form-control" id="first-name" value="<c:out value='${oCustomer.firstName}' />">
                 </div>
             </div> <!-- end form-group -->
 
             <div class="form-group row">
                 <label for="last-name" class="col-md-3 col-form-label">Last name:</label>
                 <div class="col-md-9">
-                    <input type="text" name="lastName" class="form-control" id="last-name" value="<c:out value='${customer.lastName}' />">
+                    <input type="text" name="lastName" class="form-control" id="last-name" value="<c:out value='${oCustomer.lastName}' />">
                 </div>
             </div> <!-- end form-group -->
 
             <div class="form-group row">
                 <label for="street" class="col-md-3 col-form-label">Street:</label>
                 <div class="col-md-9">
-                    <input type="text" name="street" class="form-control" id="street" value="<c:out value='${customer.street}' />">
+                    <input type="text" name="street" class="form-control" id="street" value="<c:out value='${oCustomer.street}' />">
                 </div>
             </div> <!-- end form-group -->
             
             <div class="form-group row">
                 <label for="city" class="col-md-3 col-form-label">City:</label>
                 <div class="col-md-9">
-                    <input type="text" name="city" class="form-control" id="city" value="<c:out value='${employee.city}' />">
+                    <input type="text" name="city" class="form-control" id="city" value="<c:out value='${oCustomer.city}' />">
                 </div>
             </div> <!-- end form-group -->
             
@@ -73,15 +84,15 @@
                 <label for="state" class="col-md-3 col-form-label">State:</label>
                 <div class="col-md-9">
                     <select name="state" class="form-control" id="state">
-                        <c:choose>
-                            <c:when test="${customer.state != null}">
-                                <c:out value="${customer.state}" />
-                            </c:when>
-                            <c:otherwise>
+                        <%--<c:choose>--%>
+                            <%--<c:when test="${oCustomer.state != null}">--%>
+                                <%--<c:out value="${oCustomer.state}" />--%>
+                            <%--</c:when>--%>
+                            <%--<c:otherwise>--%>
                                 <option value="">Select Your State</option>
                                 <option value="NE">Nebraska</option>
-                            </c:otherwise>
-                        </c:choose>
+                            <%--</c:otherwise>--%>
+                        <%--</c:choose>--%>
                     </select>
                 </div>
             </div> <!-- end form-group -->
@@ -89,21 +100,21 @@
             <div class="form-group row">
                 <label for="zipcode" class="col-md-3 col-form-label">City:</label>
                 <div class="col-md-9">
-                    <input type="text" name="zipcode" class="form-control" id="zipcode" value="<c:out value='${employee.zipcode}' />">
+                    <input type="text" name="zipcode" class="form-control" id="zipcode" value="<c:out value='${oCustomer.zipcode}' />">
                 </div>
             </div> <!-- end form-group -->
             
             <div class="form-group row">
                 <label for="phone" class="col-md-3 col-form-label">Phone:</label>
                 <div class="col-md-9">
-                    <input type="text" name="phone" class="form-control" id="phone" value="<c:out value='${employee.phone}' />">
+                    <input type="text" name="phone" class="form-control" id="phone" value="<c:out value='${oCustomer.phone}' />">
                 </div>
             </div> <!-- end form-group -->
             
             <div class="form-group row">
                 <label for="email" class="col-md-3 col-form-label">Email:</label>
                 <div class="col-md-9">
-                    <input type="text" name="email" class="form-control" id="email" value="<c:out value='${employee.email}' />">
+                    <input type="text" name="email" class="form-control" id="email" value="<c:out value='${oCustomer.email}' />">
                 </div>
             </div> <!-- end form-group -->
 

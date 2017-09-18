@@ -3,6 +3,8 @@ package controller;
 import business.*;
 import data.HuskerDA;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -23,6 +25,7 @@ public class CartController extends HttpServlet {
         ServletContext sc = getServletContext();
         String url = "/index.jsp";
         HttpSession oSession = request.getSession();
+        List<String> errorMessages = new ArrayList<String>();
         String sErrorMessage = "";
         boolean bIsValid = true;
         int cartTotalItems = 0;
@@ -99,27 +102,104 @@ public class CartController extends HttpServlet {
         else if (sAction.equals("checkout")){
             oCart = (Cart) oSession.getAttribute("oCart");
 
+            State states;
+            
             request.setAttribute("oCart", oCart);
             url = "/checkout.jsp";
         }
         else if (sAction.equals("completeOrder")) {
+            
+            String validationMessage = "";
             
             String sFirstName = request.getParameter("firstName"); 
             String sLastName = request.getParameter("lastName"); 
             String sStreet = request.getParameter("street"); 
             String sCity = request.getParameter("city"); 
             String sState = request.getParameter("state"); 
-            String sZip = request.getParameter("zip"); 
-            String sEmail = request.getParameter("email"); 
+            String sZip = request.getParameter("zipcode"); 
             String sPhoneNumber = request.getParameter("phone"); 
-            //int customerID, String firstName, String lastName, String street, String city, String state, String zip, String phone, String email
-            Customer oCustomer = new Customer(0,sFirstName,sLastName,sStreet,sCity,sState,sZip,sPhoneNumber,sEmail);
-            Customer oCustomerTest = new Customer(0,"s","s","s","s","s","s","s","s"); 
+            String sEmail = request.getParameter("email");
+            
+            // Validate the form input.
+            validationMessage = FormValidation.validateStringInput(sFirstName, "First name");
+            if (!validationMessage.equals("")) {
 
-            int nCatcher = HuskerDA.AddCustomer(oCustomerTest);
+                errorMessages.add(validationMessage);
+
+            }
+
+            String lastName = request.getParameter("lastName");
+            validationMessage = FormValidation.validateStringInput(sLastName, "Last name");
+            if (!validationMessage.equals("")) {
+
+                errorMessages.add(validationMessage);
+
+            }
+
+            validationMessage = FormValidation.validateStringInput(sStreet, "Street");
+            if (!validationMessage.equals("")) {
+
+                errorMessages.add(validationMessage);
+
+            }
+
+            validationMessage = FormValidation.validateStringInput(sCity, "City");
+            if (!validationMessage.equals("")) {
+
+                errorMessages.add(validationMessage);
+
+            }
+
+            validationMessage = FormValidation.validateStringInput(sState, "State");
+            if (!validationMessage.equals("")) {
+
+                errorMessages.add(validationMessage);
+
+            } 
+            
+            validationMessage = FormValidation.validateStringInput(sZip, "Zipcode");
+            if (!validationMessage.equals("")) {
+
+                errorMessages.add(validationMessage);
+
+            }
+            
+            validationMessage = FormValidation.validateStringInput(sPhoneNumber, "Phone");
+            if (!validationMessage.equals("")) {
+
+                errorMessages.add(validationMessage);
+
+            }
+            
+            validationMessage = FormValidation.validateStringInput(sEmail, "Email");
+            if (!validationMessage.equals("")) {
+
+                errorMessages.add(validationMessage);
+
+            }
+            
+            //int customerID, String firstName, String lastName, String street, String city, String state, String zip, String phone, String email
+            Customer oCustomer = new Customer(0, sFirstName,sLastName,sStreet,sCity,sState,sZip,sPhoneNumber,sEmail);
+            Customer oCustomerTest = new Customer(0, "s","s","s","s","s","s","s","s"); 
+
             String breakpoint = "";
             
-            url = "/thanks.jsp";
+            // If errorMessages comes back empty (i.e. everything validated), 
+            // create the customer and add it to the session.
+            if (errorMessages.isEmpty()) {
+
+                int nCatcher = HuskerDA.AddCustomer(oCustomerTest);
+                url = "/thanks.jsp";
+
+            } else {
+
+                // Set attributes the user completed and return them 
+                // to the form during the validation process.
+                request.setAttribute("oCustomer", oCustomer);
+                request.setAttribute("errorMessages", errorMessages);
+                url = "/checkout.jsp";
+
+            }
             
         }
         
