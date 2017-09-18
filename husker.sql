@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1:3307
--- Generation Time: Sep 11, 2017 at 06:41 PM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- Host: 127.0.0.1
+-- Generation Time: Sep 18, 2017 at 06:19 PM
+-- Server version: 10.1.10-MariaDB
+-- PHP Version: 7.0.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -60,6 +60,16 @@ CREATE TABLE `customer` (
   `phone` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`CustomerID`, `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `email`, `phone`) VALUES
+(1, 's', 's', 's', 's', 's', 's', 's', 's'),
+(2, 's', 'a', 's', 'df', 'NE', 's', 's', 's'),
+(3, 'ss', 'd', 'd', 's', 'NE', 's', 's', 's'),
+(4, 'ss', 'd', 'd', 's', 'NE', 's', 's', 's');
+
 -- --------------------------------------------------------
 
 --
@@ -74,6 +84,22 @@ CREATE TABLE `lineitem` (
   `OrderID` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `lineitem`
+--
+
+INSERT INTO `lineitem` (`ID`, `productName`, `quantity`, `price`, `OrderID`) VALUES
+(1, 'iPhone 7 Plus 32GB', 3, '2307', 1),
+(2, 'Galaxy S7 32GB', 2, '1190', 1),
+(3, '15" Macbook Pro', 2, '4798', 1),
+(4, 'iPhone 7 Plus 32GB', 3, '2307', 2),
+(5, 'Galaxy S7 32GB', 2, '1190', 2),
+(6, '15" Macbook Pro', 2, '4798', 2),
+(7, 'Dell Desktop Computer Optiplex 3040', 3, '1680', 2),
+(8, '27" Retina 5K Display', 2, '3598', 2),
+(9, 'Sony 60" Smart HDTV', 4, '3600', 2),
+(10, 'LG 60" Smart HDTV', 15, '15720', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -85,6 +111,14 @@ CREATE TABLE `orders` (
   `orderDate` date NOT NULL,
   `CustomerID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`OrderID`, `orderDate`, `CustomerID`) VALUES
+(1, '2017-09-18', 3),
+(2, '2017-09-18', 4);
 
 -- --------------------------------------------------------
 
@@ -108,11 +142,11 @@ INSERT INTO `product` (`ProductID`, `CategoryID`, `price`, `productName`, `image
 (3, 1, '769.0000', 'iPhone 7 Plus 32GB', 'images/iphone-7s-200x200.png'),
 (4, 1, '594.9900', 'Galaxy S7 32GB', 'images/samsung-galaxy-s7-200x200.png'),
 (5, 2, '559.9900', 'Dell Desktop Computer Optiplex 3040', 'images/dell-optiplex-3040.jpg'),
-(6, 2, '1799.0000', '27\" Retina 5K Display', 'images/27-inch-imac.jpg'),
-(7, 3, '2399.0000', '15\" Macbook Pro', 'images/15-inch-macbook-pro.png'),
+(6, 2, '1799.0000', '27" Retina 5K Display', 'images/27-inch-imac.jpg'),
+(7, 3, '2399.0000', '15" Macbook Pro', 'images/15-inch-macbook-pro.png'),
 (8, 3, '799.0000', 'Surface Pro 4', 'images/surface-pro-4.jpg'),
-(9, 4, '899.9900', 'Sony 60\" Smart HDTV', 'images/60-inch-samsung-flatscreen.jpg'),
-(10, 4, '1047.9900', 'LG 60\" Smart HDTV', 'images/60-inch-lg-flatscreen.jpg'),
+(9, 4, '899.9900', 'Sony 60" Smart HDTV', 'images/60-inch-samsung-flatscreen.jpg'),
+(10, 4, '1047.9900', 'LG 60" Smart HDTV', 'images/60-inch-lg-flatscreen.jpg'),
 (11, 5, '379.9900', 'Beats by Dre Wireless Headphones', 'images/beats-by-dre-wireless-headphones.jpg'),
 (12, 5, '67.2400', 'Skullcandy Hesh 2 Wireless Headphones', 'images/skullcandy-hesh2-wireless-headphones.jpg');
 
@@ -166,17 +200,17 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `lineitem`
 --
 ALTER TABLE `lineitem`
-  MODIFY `ID` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `OrderID` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `OrderID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `product`
 --
