@@ -25,15 +25,12 @@
             <c:forEach var="item" items="${oCart.items}">
                 <tr>
                     <td class="col-md-2">
-                        <form action="" method="post">
-                            <input type="hidden" name="action" 
-                                   value="cart">
+                        <form action="CartController" method="post">
+                            <input type="hidden" name="action" value="update">
                             <input type="hidden" name="productID" 
                                    value="<c:out value='${item.product.productID}'/>">
                             <input type=text name="quantity" class="col-md-3" 
                                    value="<c:out value='${item.quantity}'/>" id="quantity">
-                            <input type="hidden" name="action" 
-                                   value="update">
                             <input type="submit" value="Update">
                         </form>
                     </td>
@@ -41,15 +38,12 @@
                     <td class="col-md-2 text-right">${item.product.priceCurrencyFormat}</td>
                     <td class="col-md-2 text-right">${item.totalCurrencyFormat}</td>
                     <td class="col-md-2 text-center">
-                        <form action="" method="post">
-                            <input type="hidden" name="action" 
-                                   value="cart">
+                        <form action="CartController" method="post">
+                            <input type="hidden" name="action" value="cart">
                             <input type="hidden" name="productID" 
                                    value="<c:out value='${item.product.productID}'/>">
                             <input type="hidden" name="quantity" 
                                    value="0">
-                            <input type="hidden" name="action" 
-                                   value="cart">
                             <input type="submit" value="Remove Item">
                         </form>
                     </td>
